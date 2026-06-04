@@ -7,7 +7,7 @@ for i in 0.000 0.05 0.1 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0
 do
    echo "Running $i"
    
-   mpirun -np 64 lmp -in gsf_112test.in -var x_shift $i
+   mpirun -np 64 lmp -in gsf_112.in -var x_shift $i
    mpirun -np 64 lmp -in gsf_110.in -var x_shift $i
    mpirun -np 64 lmp -in gsf_111.in -var x_shift $i
 
