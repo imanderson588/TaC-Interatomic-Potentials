@@ -47,9 +47,6 @@ displace_atoms bot move ${shift}  0.0 0.0 units lattice
 compute peratom all pe/atom
 compute eatoms all reduce sum c_peratom
 
-# Dump to comp  for Ovito post processing 
-#dump 1 all custom 1 dump.comp.* id type xs ys zs c_peratom fx fy fz
-
 #thermo 1
 #thermo_style custom step pe c_eatoms
 
