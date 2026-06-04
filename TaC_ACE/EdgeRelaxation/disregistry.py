@@ -26,7 +26,7 @@ matplotlib.use("Agg")
 # ----------------------------------------------------------------------
 # USER CONFIG  -- edit these for your geometry
 # ----------------------------------------------------------------------
-BASE_FILE = "perfect.lmp"      # perfect-crystal reference configuration
+BASE_FILE = "Unrelaxed.lmp"      # perfect-crystal reference configuration
 DEFECT_FILE = "EdgeRelaxed.lmp"  # dislocation configuration
 
 NORMAL_AXIS = 2      # slip-plane normal:                 0=x, 1=y, 2=z
