@@ -26,5 +26,5 @@ for pot in POTENTIAL_DIRS:
     run(["python", "plot_gsf.py"],    d("GsfCurves"))
     lmp("in.dislocation",              d("EdgeRelaxation"))
     run(["python", "disregistry.py"], d("EdgeRelaxation"))
-    lmp("applystress.in",              d("PeierlsStress"))
+    run(["bash", "apply_stress.sh"],   d("PeierlsStress"))
     run(["python", "plot.py"],        d("PeierlsStress"))
