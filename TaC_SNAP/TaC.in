@@ -1,0 +1,90 @@
+[BISPECTRUM]
+numTypes = 2
+twojmax = 6 6
+rcutfac = 1.0
+rfac0 = 0.99363
+rmin0 = 0.0
+wj = 1.0 0.9293160905266721
+radelem = 2.86954 2.00000
+type = Ta C
+wselfallflag = 1
+chemflag = 1 #changed
+bnormflag = 1 #changed
+quadraticflag = 0 #changed
+bzeroflag = 1
+
+[CALCULATOR]
+calculator = LAMMPSSNAP
+energy = 1
+force = 1
+stress = 0
+
+[ESHIFT]
+Ta = 3.44766
+C = 1.24304
+
+[SOLVER]
+solver = SVD
+compute_testerrs = 1
+detailed_errors = 1
+
+
+[SCRAPER]
+scraper = JSON
+
+[PATH]
+dataPath = ../Dakota_rmse/JSON
+
+[OUTFILE]
+metrics = TaC_metrics.md
+potential = TaC_pot
+
+[REFERENCE]
+units = metal
+atom_style = atomic
+pair_style = hybrid/overlay zero 7.01 zbl 4.0 4.2
+pair_coeff1 = * * zero
+pair_coeff2 = 1 1 zbl 73 73
+pair_coeff3 = 1 2 zbl 73 6
+pair_coeff4 = 2 2 zbl 6 6
+
+
+[GROUPS]
+group_sections = name training_size testing_size eweight fweight vweight
+group_types = str float float float float float
+smartweights = 0
+random_sampling = 0
+GSF_111_112      = 1 0 300.00000 3.000000000 1.00E-08
+GSF_111_110      = 1 0 100.00000 1.000000000 1.00E-08
+GSF_110_110      = 1 0 100.00000 1.000000000 1.00E-08
+EdgeMD           = 1 0 100.00000 1.000000000 1.00E-08
+Vacancies        = 1 0 200.00000 2.000000000 1.00E-08
+Defects          = 1 0 200.00000 2.000000000 1.00E-08
+GammaSurf        = 1 0 200.00000 2.000000000 1.00E-08
+TaC_Surfaces     = 1 0 100.00000 1.000000000 1.00E-08
+OtherStructures  = 1 0 100.00000 1.000000000 1.00E-08
+TaC_Liquidcopy   = 1 0 100.00000 1.000000000 1.00E-08
+TaC_MD           = 1 0 100.00000 1.000000000 1.00E-08
+GammaMD          = 1 0 100.00000 1.000000000 1.00E-08
+TaC_Volume       = 1 0 800.0000000 1.00E-09     1.00E-09
+EOS_copy         = 1 0 800.0000000 1.00E-09     1.00E-09
+Carbon           = 1 0 1.0000000 1.00E-09     1.00E-09
+C_FCC            = 1 0 1.0000000 1.00E-09     1.00E-09
+C_BCC            = 1 0 1.0000000 1.00E-09     1.00E-09
+Ta               = 1 0 1.0000000 1.00E-09     1.00E-09
+WC               = 1 0 1.0000000 1.00E-09     1.00E-09
+NiAs             = 1 0 1.0000000 1.00E-09     1.00E-09
+CsCl             = 1 0 1.0000000 1.00E-09     1.00E-09
+ZincBlende       = 1 0 1.0000000 1.00E-09     1.00E-09
+Ta_Isolated      = 1 0 1.0000000 1.00E-09     1.00E-09
+C_Isolated       = 1 0 1.0000000 1.00E-09     1.00E-09
+
+
+[EXTRAS]
+dump_descriptors = 1
+dump_truth = 1
+dump_weights = 1
+dump_dataframe = 1
+
+[MEMORY]
+override = 0

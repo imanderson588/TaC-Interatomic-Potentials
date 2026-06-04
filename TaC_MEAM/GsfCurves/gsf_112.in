@@ -1,0 +1,70 @@
+# Input file for Stack Fault Energy surface of Aluminum
+# Phillip Spear, 2012
+
+# ------------------------ INITIALIZATION ----------------------
+units metal
+dimension 3
+boundary p p s
+atom_style atomic
+variable shift equal ${x_shift}
+variable latparam1 equal 4.47179607
+
+variable xdim equal ${latparam1}*sqrt(6)/2*3
+variable ydim equal ${latparam1}*sqrt(2)/2*3
+
+# ----------------------- ATOM DEFINITION ----------------------
+lattice fcc ${latparam1}
+region 1 block 0 ${xdim} 0 ${ydim} 0 20 
+region 2 block 0 ${xdim} 0 ${ydim} 20 40
+region whole block 0 ${xdim} 0 ${ydim} 0 200 units box
+create_box 2 whole
+lattice fcc ${latparam1} orient x 1 1 2 orient y -1 1 0 orient z -1 -1 1
+create_atoms 1 region 1
+lattice fcc ${latparam1} orient x 1 1 2 orient y -1 1 0 orient z -1 -1 1
+create_atoms 1 region 2
+lattice fcc ${latparam1} origin 0 0 0.5 orient x 1 1 2 orient y -1 1 0 orient z -1 -1 1
+create_atoms 2 region 1
+lattice fcc ${latparam1} origin 0 0 0.5 orient x 1 1 2 orient y -1 1 0 orient z -1 -1 1
+create_atoms 2 region 2
+
+# ----------------------- FORCE FIELDS -----------------------
+mass 1 180.9479  # Atomic mass of Ta
+mass 2 12.011    # Atomic mass of C
+
+pair_style meam
+pair_coeff * * ../library.meam Ta C ../TaC.meam Ta C
+
+
+# ------------------------- SETTINGS --------------------------
+group top region 1
+group bot region 2
+
+# ------------------------- Displacement -----------------------
+displace_atoms bot move ${shift}  0.0 0.0 units lattice
+compute peratom all pe/atom
+compute eatoms all reduce sum c_peratom
+
+# Dump to comp  for Ovito post processing 
+#dump 1 all custom 1 dump.comp.* id type xs ys zs c_peratom fx fy fz
+
+#thermo 1
+#thermo_style custom step pe c_eatoms
+
+fix 1 all setforce 0 0 NULL
+
+variable E equal etotal
+
+min_style cg
+minimize 1e-12 1e-2 1000 1000
+
+# SIMULATION DONE
+#print ${x}
+print "All done"
+
+
+
+fix extra all print 1 """
+- shift: ${shift}
+  pe: ${E}
+""" append gsf_112.yaml screen no title ""
+run 0

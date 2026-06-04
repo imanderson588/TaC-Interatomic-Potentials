@@ -1,0 +1,63 @@
+# ---------- Initialize Simulation --------------------- # ---------- Initialize Simulation --------------------- 
+clear 
+units metal 
+dimension 3 
+boundary p p s
+atom_style atomic 
+atom_modify map array
+variable sigxy equal ${stress}
+variable force equal ${sigxy}*(3327.61)
+variable forcexunits equal ${force}*(6.2415e-6)
+variable forcetop equal ${forcexunits}/2484
+variable forcebot equal ${forcexunits}/2688
+
+
+
+# ---------- Create Atoms --------------------- 
+
+read_data ../EdgeRelaxation/EdgeRelaxed.lmp
+
+
+region bottom block EDGE EDGE EDGE EDGE EDGE 5 units box
+region top block EDGE EDGE EDGE EDGE 68 EDGE units box
+
+group top region top 
+group bottom region bottom 
+
+
+fix forcetop top addforce  0.0 ${forcetop} 0.0 
+fix forcebottom bottom addforce  0.0 -${forcebot} 0.0 
+
+fix_modify forcetop energy yes
+fix_modify forcebottom energy yes
+
+mass 1 180.9479  # Atomic mass of Ta
+mass 2 12.011    # Atomic mass of C
+
+
+# ---------- Define Interatomic Potential --------------------- 
+
+pair_style hybrid/overlay zbl 4.0 4.2 pace product
+pair_coeff 1 1 zbl 73 73
+pair_coeff 1 2 zbl 73 6
+pair_coeff 2 2 zbl 6 6
+pair_coeff * * pace ../TaC_pot.yace Ta C
+
+
+compute        peratom all pe/atom
+
+
+thermo 1 
+thermo_style custom step pe lx ly lz press pxy pyy pzz cellalpha cellbeta cellgamma
+min_style fire
+minimize 1e-12 1e-8 10000 10000
+
+
+reset_timestep 0
+
+fix extra all print 1 """
+- stress: ${sigxy}
+  energy: $(pe)
+""" append energy.yaml screen no title ""
+
+run 0

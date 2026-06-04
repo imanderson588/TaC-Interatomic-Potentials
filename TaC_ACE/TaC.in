@@ -1,0 +1,99 @@
+[ACE]
+numTypes = 2
+rcutfac = 5.352660465 5.957295569 5.957295569 4.428010515 
+lambda = 0.4039083591 1.584380886 1.584380886 1.80718842
+rcinner = 1.013235193 0.3016752378 0.3016752378 0.5598543193
+drcinner = 0.143017386 0.04861299553 0.04861299553 0.09624040935
+ranks = 1 2 3 4
+lmax =  1 4 2 1
+nmax =  22 8 2 1
+mumax = 2
+lmin = 0 0 0 0
+nmaxbase = 22
+type = Ta C
+bzeroflag = 1
+
+
+[CALCULATOR]
+calculator = LAMMPSPACE
+energy = 1
+force = 1
+stress = 0
+
+[ESHIFT]
+Ta = 3.44766
+C = 1.24305 
+
+
+[SOLVER]
+solver = ARD
+compute_testerrs = 1
+detailed_errors = 1
+
+[ARD]
+directmethod = 0
+scap = 1.E-4
+scai = 1.E-4
+logcut = 0.001
+
+
+[SCRAPER]
+scraper = JSON
+
+[PATH]
+dataPath = ../../JSON
+
+[OUTFILE]
+output_style = PACE
+metrics = TaC_metrics.md
+potential = TaC_pot
+
+[REFERENCE]
+units = metal
+atom_style = atomic
+pair_style = hybrid/overlay zero 7.01 zbl 4.0 4.2
+pair_coeff1 = * * zero
+pair_coeff2 = 1 1 zbl 73 73
+pair_coeff3 = 1 2 zbl 73 6
+pair_coeff4 = 2 2 zbl 6 6
+
+
+[GROUPS]
+group_sections = name training_size testing_size eweight fweight vweight
+group_types = str float float float float float
+smartweights = 1
+random_sampling = 0
+GSF_111_112      = 1 0 9.000000000 0.900000000 0.0
+GSF_111_110      = 1 0 2.000000000 0.200000000 0.0
+GSF_110_110      = 1 0 2.000000000 0.200000000 0.0
+EdgeMD           = 1 0 2.000000000 0.300000000 0.0
+Vacancies        = 1 0 1.000000000 0.200000000 0.0
+Defects          = 1 0 1.000000000 0.200000000 0.0
+GammaSurf        = 1 0 1.000000000 0.200000000 0.0
+TaC_Surfaces     = 1 0 1.000000000 0.200000000 0.0
+OtherStructures  = 1 0 1.000000000 0.100000000 0.0
+TaC_Volume       = 1 0 1.000000000 0.010000000 0.0
+Carbon           = 1 0 1.000000000 0.010000000 0.0
+C_FCC            = 1 0 1.000000000 0.010000000 0.0
+C_BCC            = 1 0 1.000000000 0.010000000 0.0
+Ta               = 1 0 1.000000000 0.010000000 0.0
+WC               = 1 0 1.000000000 0.010000000 0.0
+NiAs             = 1 0 1.000000000 0.010000000 0.0
+CsCl             = 1 0 1.000000000 0.010000000 0.0
+ZincBlende       = 1 0 1.000000000 0.010000000 0.0
+EOS_copy         = 1 0 1.000000000 0.010000000 0.0
+Ta_Isolated      = 1 0 1.000000000 0.000000000 0.0
+C_Isolated       = 1 0 1.000000000 0.000000000 0.0
+TaC_MD           = 1 0 0.500000000 0.050000000 0.0
+GammaMD          = 1 0 0.500000000 0.050000000 0.0
+TaC_Liquidcopy   = 1 0 0.200000000 0.020000000 0.0
+
+
+[EXTRAS]
+dump_descriptors = 1
+dump_truth = 1
+dump_weights = 1
+dump_dataframe = 1
+
+[MEMORY]
+override = 0
