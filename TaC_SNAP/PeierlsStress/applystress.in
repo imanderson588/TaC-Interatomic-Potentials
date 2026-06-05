@@ -1,29 +1,40 @@
-# ---------- Initialize Simulation --------------------- # ---------- Initialize Simulation --------------------- 
-clear 
-units metal 
-dimension 3 
+# ---------- Initialize Simulation ---------------------
+clear
+units metal
+dimension 3
 boundary p p s
-atom_style atomic 
+atom_style atomic
 atom_modify map array
-variable sigxy equal ${stress}
-variable force equal ${sigxy}*(3327.61)
-variable forcexunits equal ${force}*(6.2415e-6)
-variable forcetop equal ${forcexunits}/2484
-variable forcebot equal ${forcexunits}/2688
 
-
-
-# ---------- Create Atoms --------------------- 
-
+# ---------- Create Atoms & Regions ---------------------
 read_data ../EdgeRelaxation/EdgeRelaxed.lmp
-
 
 region bottom block EDGE EDGE EDGE EDGE EDGE 5 units box
 region top block EDGE EDGE EDGE EDGE 68 EDGE units box
 
-group top region top 
-group bottom region bottom 
+group top region top
+group bottom region bottom
 
+# ---------- Dynamic Area and Atom Counts ---------------------
+# Calculates the live cross-sectional area (Lx * Ly)
+variable Area equal lx*ly
+
+# Automatically counts the number of atoms currently in each group
+variable Ntop equal count(top)
+variable Nbot equal count(bottom)
+
+# ---------- Force Calculations ---------------------
+variable sigxy equal ${stress}
+
+# 1. Total force is stress multiplied by the dynamic Area variable
+variable force equal ${sigxy}*v_Area
+
+# 2. Convert force to your target units using your conversion factor
+variable forcexunits equal ${force}*(6.2415e-6)
+
+# 3. Divide the total converted force by the live atom count of each group
+variable forcetop equal ${forcexunits}/v_Ntop
+variable forcebot equal ${forcexunits}/v_Nbot
 
 fix forcetop top addforce  0.0 ${forcetop} 0.0 
 fix forcebottom bottom addforce  0.0 -${forcebot} 0.0 
