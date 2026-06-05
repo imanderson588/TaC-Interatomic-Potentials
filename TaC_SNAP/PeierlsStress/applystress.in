@@ -50,7 +50,7 @@ compute        peratom all pe/atom
 thermo 1 
 thermo_style custom step pe lx ly lz press pxy pyy pzz cellalpha cellbeta cellgamma
 min_style fire
-minimize 0 1e-5 10000 10000
+minimize 0 1e-2 10000 10000
 
 
 reset_timestep 0
