@@ -90,7 +90,7 @@ variable E equal etotal
 
 
 min_style cg
-minimize 1e-12 1e-2 10000 10000
+minimize 0 1e-5 10000 10000
 
 print "Total energy (eV) = ${E};"
 
