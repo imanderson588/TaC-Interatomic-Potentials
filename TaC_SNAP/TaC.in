@@ -23,10 +23,22 @@ stress = 0
 Ta = 3.44766
 C = 1.24304
 
+#[SOLVER]
+#solver = SVD
+#compute_testerrs = 1
+#detailed_errors = 1
+
+
 [SOLVER]
-solver = SVD
+solver = ARD
 compute_testerrs = 1
 detailed_errors = 1
+
+[ARD]
+directmethod = 0
+scap = 1.E-4
+scai = 1.E-4
+logcut = 1
 
 [SCRAPER]
 scraper = JSON

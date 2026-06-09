@@ -1,18 +1,19 @@
 units metal
 dimension 3
 atom_style atomic
+variable a  equal 2
 boundary p p s
-lattice fcc 4.4713767 origin 0.001 0.001 0.001 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
+lattice fcc ${a} origin 0.001 0.001 0.001 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
 region simcell block 0 3 0 24 -0.5 10
 region top block 0 3 0 23.5 5 10
 region bottom block 0 3 0 24 -0.5 5
 create_box 2 simcell
 create_atoms 1 region bottom
-lattice fcc 4.4713767 origin 0.001 0.001 0.501 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1 
+lattice fcc ${a} origin 0.001 0.001 0.501 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1 
 create_atoms 2 region bottom
-lattice fcc 4.4713767  origin 0.001 0.001 0.001 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
+lattice fcc ${a}  origin 0.001 0.001 0.001 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
 create_atoms 1 region top
-lattice fcc 4.4713767 origin 0.001 0.001 0.501 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
+lattice fcc ${a} origin 0.001 0.001 0.501 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
 create_atoms 2 region top
 
 mass 1 180.9479  # Atomic mass of Ta
@@ -47,7 +48,7 @@ variable N equal atoms
 
 min_style cg
 
-minimize 0 1e-5 10000 10000
+minimize 1e-10 1e-5 10000 10000
 
 write_data EdgeRelaxed.lmp
 

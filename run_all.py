@@ -20,7 +20,7 @@ def run(cmd, cwd):
 for pot in POTENTIAL_DIRS:
     def d(sub): return os.path.join(BASE, pot, sub)
 
-    lmp("lat_min.in",                  d("LatticeConstant"))
+    run(["python", "updateLattice.py"],    d("LatticeConstant"))
     lmp("in.elastic",                  d("ElasticConstants"))
     run(["bash", "gsf.sh"],            d("GsfCurves"))
     run(["python", "plot_gsf.py"],    d("GsfCurves"))
