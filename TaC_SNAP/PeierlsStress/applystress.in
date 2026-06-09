@@ -1,43 +1,37 @@
-# ---------- Initialize Simulation ---------------------
-clear
-units metal
-dimension 3
+# ---------- Initialize Simulation --------------------- 
+clear 
+units metal 
+dimension 3 
 boundary p p s
-atom_style atomic
+atom_style atomic 
 atom_modify map array
+variable sigxy equal ${stress}
+variable force equal ${sigxy}*(3300.10)
+variable forcexunits equal ${force}*(6.2415e-6)
+variable forcetop equal ${forcexunits}/2780
+variable forcebot equal ${forcexunits}/2804
+variable strain_energy equal ${sigxy}*${sigxy}/440
 
-# ---------- Create Atoms & Regions ---------------------
+
+
+# ---------- Create Atoms --------------------- 
+
 read_data ../EdgeRelaxation/EdgeRelaxed.lmp
 
+
 region bottom block EDGE EDGE EDGE EDGE EDGE 5 units box
-region top block EDGE EDGE EDGE EDGE 68 EDGE units box
+region top block EDGE EDGE EDGE EDGE 66.93 EDGE units box
 
-group top region top
-group bottom region bottom
+group top region top 
+group bottom region bottom 
 
-# ---------- Dynamic Area and Atom Counts ---------------------
-# Calculates the live cross-sectional area (Lx * Ly)
-variable Area equal lx*ly
 
-# Automatically counts the number of atoms currently in each group
-variable Ntop equal count(top)
-variable Nbot equal count(bottom)
-
-# ---------- Force Calculations ---------------------
-variable sigxy equal ${stress}
-
-# 1. Total force is stress multiplied by the dynamic Area variable
-variable force equal ${sigxy}*v_Area
-
-# 2. Convert force to your target units using your conversion factor
-variable forcexunits equal ${force}*(6.2415e-6)
-
-# 3. Divide the total converted force by the live atom count of each group
-variable forcetop equal ${forcexunits}/v_Ntop
-variable forcebot equal ${forcexunits}/v_Nbot
 
 fix forcetop top addforce  0.0 ${forcetop} 0.0 
 fix forcebottom bottom addforce  0.0 -${forcebot} 0.0 
+
+fix freeze_top top setforce 0 NULL 0
+fix freeze_bottom bottom setforce 0 NULL 0
 
 fix_modify forcetop energy yes
 fix_modify forcebottom energy yes
@@ -60,9 +54,10 @@ compute        peratom all pe/atom
 
 thermo 1 
 thermo_style custom step pe lx ly lz press pxy pyy pzz cellalpha cellbeta cellgamma
-min_style fire
-minimize 0 1e-2 10000 10000
+min_style cg
+minimize 1e-10 1e-5 10000 10000
 
+variable total_pe equal pe+${strain_energy}
 
 reset_timestep 0
 
