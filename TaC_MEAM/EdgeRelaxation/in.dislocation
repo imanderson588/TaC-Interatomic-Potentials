@@ -48,7 +48,7 @@ variable N equal atoms
 
 min_style cg
 
-minimize 1e-10 1e-5 10000 10000
+minimize 0 1e-5 10000 10000
 
 write_data EdgeRelaxed.lmp
 

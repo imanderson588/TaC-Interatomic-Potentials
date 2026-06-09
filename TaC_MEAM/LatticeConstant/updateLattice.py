@@ -32,7 +32,7 @@ def update_lat_constant(lat_const):
     new_lines = []
     for line in lines:
         if line.strip().startswith("variable a equal"):
-            line = f"variable a qual {lat_const}\n"
+            line = f"variable a equal {lat_const}\n"
         new_lines.append(line)
 
     with open(filepath, "w") as file:

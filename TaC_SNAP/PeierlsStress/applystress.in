@@ -59,6 +59,9 @@ minimize 1e-10 1e-5 10000 10000
 
 variable total_pe equal pe+${strain_energy}
 
+fix_modify forcetop energy no
+fix_modify forcebottom energy no
+
 reset_timestep 0
 
 fix extra all print 1 """
