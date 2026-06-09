@@ -32,12 +32,12 @@ def update_lat_constant(lat_const):
     new_lines = []
     for line in lines:
         if line.strip().startswith("variable a equal"):
-            line = f"variable a  equal {lat_const}\n"
+            line = f"variable a qual {lat_const}\n"
         new_lines.append(line)
 
     with open(filepath, "w") as file:
         file.writelines(new_lines)
 
 
-lat_const = 2
+lat_const = extract_lammps_lat_const()
 update_lat_constant(lat_const)

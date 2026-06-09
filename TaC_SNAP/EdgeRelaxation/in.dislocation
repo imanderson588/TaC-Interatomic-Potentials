@@ -1,7 +1,7 @@
 units metal
 dimension 3
 atom_style atomic
-variable a  equal 2
+variable a equal 2
 boundary p p s
 lattice fcc ${a} origin 0.001 0.001 0.001 orient x 1 1 -2 orient y 1 -1 0 orient z -1 -1 -1
 region simcell block 0 3 0 24 -0.5 10
