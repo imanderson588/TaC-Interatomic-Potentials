@@ -36,7 +36,7 @@ variable maxeval equal 1000
 variable dmax equal 1.0e-2
 
 # generate the box and atom positions using a diamond lattice
-variable a   equal 2
+variable a   equal None
 boundary p p p
 
 
