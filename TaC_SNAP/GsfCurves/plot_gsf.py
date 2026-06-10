@@ -73,7 +73,7 @@ energy_110 = [((e + e0_110) / AREA_110) * EV_TO_MJ_M2 for e in raw_energy_110]
 AREA_112 = 155.86
 N_TA_112, N_C_112 = 0, 0
 
-shift_112 = [d['shift']/(0.577) for d in data_112]
+shift_112 = [d['shift']*np.sqrt(6) for d in data_112]
 raw_energy_112 = [
     d['pe'] - calculate_E_shift(N_TA_112, N_C_112) for d in data_112]
 e0_112 = -raw_energy_112[0]
@@ -123,7 +123,7 @@ ax.plot(displacement_dft_110, energy_dft_110, "o-",
 ax.plot(shift_110,            energy_110,     "s--",
         color=color_110, label=r"ACE <110>$\{110\}$")
 
-ax.plot(shift_112,            energy_112,     "s--",
+ax.plot(shift_112[0:16],            energy_112[0:16],     "s--",
         color=color_110, label=r"ACE <112>$\{111\}$")
 
 
