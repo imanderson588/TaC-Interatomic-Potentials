@@ -117,14 +117,14 @@ fig, ax = plt.subplots(figsize=(6, 3))
 ax.plot(displacement_dft_111, energy_dft_111, "o-",
         color=color_111, label=r"DFT <110>$\{111\}$")
 ax.plot(shift_111,            energy_111,     "s--",
-        color=color_111, label=r"ACE <110>$\{111\}$")
+        color=color_111, label=r"SNAP <110>$\{111\}$")
 ax.plot(displacement_dft_110, energy_dft_110, "o-",
         color=color_110, label=r"DFT <110>$\{110\}$")
 ax.plot(shift_110,            energy_110,     "s--",
-        color=color_110, label=r"ACE <110>$\{110\}$")
+        color=color_110, label=r"SNAP <110>$\{110\}$")
 
 ax.plot(shift_112[0:16],            energy_112[0:16],     "s--",
-        color=color_110, label=r"ACE <112>$\{111\}$")
+        color=color_110, label=r"SNAP <112>$\{111\}$")
 
 
 ax.set_xlabel("Fractional Displacement")
