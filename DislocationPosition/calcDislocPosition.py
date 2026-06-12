@@ -18,9 +18,13 @@ pipeline.modifiers.append(SelectTypeModifier(operate_on="particles", property="P
 
 pipeline.modifiers.append(DeleteSelectedModifier())
 
+data = pipeline.compute()
+
 pipeline.modifiers.append(CommonNeighborAnalysisModifier())
 
-pipeline.modifiers.append
+pipeline.modifiers.append(SelectTypeModifier(operate_on='particles',property='Structure Type', types={"FCC"}))
+
+pipeline.modifiers.append(DeleteSelectedModifier())
 
 data = pipeline.compute()
 
