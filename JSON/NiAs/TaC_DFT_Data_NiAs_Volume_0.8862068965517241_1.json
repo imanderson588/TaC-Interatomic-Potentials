@@ -1,0 +1,116 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "C",
+          "C"
+        ],
+        "Energy": -35.35996408,
+        "Forces": [
+          [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            2.776340626,
+            0.0,
+            0.0
+          ],
+          [
+            -1.388170313,
+            2.404381573,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            4.910795352
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            2.4554
+          ],
+          [
+            1.38817,
+            0.80146,
+            3.6831
+          ],
+          [
+            -0.0,
+            1.60292,
+            1.2277
+          ]
+        ],
+        "Stress": [
+          [
+            2234.71656,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            2234.71667,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            2594.42615
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ],
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/NiAs/TaC_DFT_Data_NiAs_Volume_0.8862068965517241_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "NiAs",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

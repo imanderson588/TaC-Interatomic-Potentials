@@ -1,0 +1,108 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "Ta",
+          "Ta"
+        ],
+        "Energy": -40.99331328,
+        "Forces": [
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            3.788,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.788,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            3.788
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.894,
+            1.894
+          ],
+          [
+            1.894,
+            0.0,
+            1.894
+          ],
+          [
+            1.894,
+            1.894,
+            0.0
+          ]
+        ],
+        "Stress": [
+          [
+            -1087.89948,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            -1087.89948,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            -1087.89948
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "ForcesStyle": "electronvoltperangstrom",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB"
+  }
+}

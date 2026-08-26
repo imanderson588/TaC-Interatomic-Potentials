@@ -1,0 +1,89 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta"
+        ],
+        "Energy": -23.09661382,
+        "Forces": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            3.137772619,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.137772619,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            3.137772619
+          ]
+        ],
+        "NumAtoms": 2,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.56889,
+            1.56889,
+            1.56889
+          ]
+        ],
+        "Stress": [
+          [
+            428.13037,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            428.13037,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            428.13037
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/C_BCC/TaC_DFT_Data_C_BCC_Volume_0.9482758620689655_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "C_BCC",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

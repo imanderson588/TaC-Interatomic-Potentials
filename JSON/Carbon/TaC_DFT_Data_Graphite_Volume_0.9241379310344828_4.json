@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "Energy": -36.83947367,
+        "Forces": [
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            2.436959567,
+            0.0,
+            -0.0
+          ],
+          [
+            -1.218479784,
+            2.110469211,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            7.94956475
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            1.98739
+          ],
+          [
+            0.0,
+            0.0,
+            5.96217
+          ],
+          [
+            1.21848,
+            0.70349,
+            1.98739
+          ],
+          [
+            -0.0,
+            1.40698,
+            5.96217
+          ]
+        ],
+        "Stress": [
+          [
+            126.01625,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            126.01629,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -4.41154
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/Graphite/TaC_DFT_Data_Graphite_Volume_0.9241379310344828_4.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "Graphite",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

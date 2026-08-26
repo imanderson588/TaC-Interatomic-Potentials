@@ -1,0 +1,160 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "Ta",
+          "Ta",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "Energy": -81.63329173,
+        "Forces": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            5.182002641,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            5.182002641,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            5.182002641
+          ]
+        ],
+        "NumAtoms": 8,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            2.591,
+            2.591
+          ],
+          [
+            2.591,
+            0.0,
+            2.591
+          ],
+          [
+            2.591,
+            2.591,
+            0.0
+          ],
+          [
+            1.2955,
+            1.2955,
+            1.2955
+          ],
+          [
+            3.8865,
+            3.8865,
+            1.2955
+          ],
+          [
+            3.8865,
+            1.2955,
+            3.8865
+          ],
+          [
+            1.2955,
+            3.8865,
+            3.8865
+          ]
+        ],
+        "Stress": [
+          [
+            -314.94826,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -314.94826,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -314.94826
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ],
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/ZincBlende/TaC_DFT_Data_ZincBlende_Volume_1.0724137931034483_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "ZincBlende",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

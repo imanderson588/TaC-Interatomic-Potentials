@@ -1,0 +1,94 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "C"
+        ],
+        "Energy": -8.94879362,
+        "Forces": [
+          [
+            -17.130487,
+            -0.0,
+            -0.0
+          ],
+          [
+            17.130487,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            20.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            20.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            20.0
+          ]
+        ],
+        "NumAtoms": 2,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.5,
+            0.0,
+            0.0
+          ]
+        ],
+        "Stress": [
+          [
+            5.13812,
+            -0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            -0.00674,
+            -0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -0.00674
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ],
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/Dimers/TaC_DFT_Data_Dimers_TaC_dimer_1.500_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "Dimers",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

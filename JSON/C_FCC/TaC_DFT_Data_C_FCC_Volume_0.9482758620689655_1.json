@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "Ta",
+          "Ta"
+        ],
+        "Energy": -45.17674806,
+        "Forces": [
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            3.992471718,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.992471718,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            3.992471718
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.99624,
+            1.99624
+          ],
+          [
+            1.99624,
+            0.0,
+            1.99624
+          ],
+          [
+            1.99624,
+            1.99624,
+            0.0
+          ]
+        ],
+        "Stress": [
+          [
+            420.75307,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            420.75307,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            420.75307
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/C_FCC/TaC_DFT_Data_C_FCC_Volume_0.9482758620689655_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "C_FCC",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

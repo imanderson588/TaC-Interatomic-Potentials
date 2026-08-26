@@ -1,0 +1,84 @@
+# B1 stacking fault.  From Python 
+units metal 
+dimension 3 
+atom_style atomic 
+variable shift equal ${x_shift}
+variable latparam1 equal 4.47179607
+variable xdim equal ${latparam1}*sqrt(2)/2
+variable xlen equal ${xdim}*4
+variable ylen equal ${latparam1}*4
+
+boundary p p f
+
+lattice custom    1.0     &
+        a1      ${xdim}       0.0     0.0     &
+        a2      0.0      ${latparam1}      0.0     &
+        a3      0.0      0.0     ${xdim}      &
+        basis   0.0      0.0     0.0     &
+        basis   0.0      0.5      0.0     &
+        basis   0.5      0.0     0.5    &
+        basis   0.5      0.5     0.5    & 
+        origin 0.01 0.01 0.01
+
+region myreg block 0 2 0 2 0 10 units lattice
+
+create_box      2 myreg
+
+create_atoms    1 box      &
+        basis   1       1       &
+        basis   4       1       &
+        basis   2       2       &
+        basis   3       2    
+  
+
+
+mass 1 180.9479  # Atomic mass of Ta
+mass 2 12.011    # Atomic mass of C
+
+
+pair_style hybrid/overlay zbl 4.0 4.2 snap
+pair_coeff 1 1 zbl 73 73
+pair_coeff 1 2 zbl 73 6
+pair_coeff 2 2 zbl 6 6
+pair_coeff * * snap ../TaC_pot.snapcoeff ../TaC_pot.snapparam Ta C
+
+change_box      all z final 0 90 boundary p p f units lattice   
+
+region bottom block INF INF INF INF 0 5 units lattice
+region top block INF INF INF INF 5 10 units lattice
+
+group top region top
+group bottom region bottom
+
+displace_atoms top move -${shift} 0 0 units lattice
+
+
+region freeze_upper block INF INF INF INF INF 2 units lattice
+region middle block INF INF INF INF 2 8 units lattice
+region freeze_lower block INF INF INF INF 8 INF units lattice
+
+group freeze_upper region freeze_upper
+group freeze_lower region freeze_lower
+group middle region middle
+
+fix freeze1 middle setforce 0 0 NULL
+fix freeze2 freeze_upper setforce 0 0 0
+fix freeze3 freeze_lower setforce 0 0 0
+
+
+
+
+variable E equal etotal
+
+
+min_style cg
+minimize 0 1e-5 10000 10000
+
+reset_timestep 0
+
+
+fix extra all print 1 """
+- shift: ${shift}
+  pe: ${E}
+""" append gsf_110.yaml screen no title ""
+run 0

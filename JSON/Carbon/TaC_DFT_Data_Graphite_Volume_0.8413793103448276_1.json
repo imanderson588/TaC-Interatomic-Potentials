@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "Energy": -26.41423059,
+        "Forces": [
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            2.077354162,
+            0.0,
+            0.0
+          ],
+          [
+            -1.038677081,
+            1.799041752,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            7.287855723
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            1.82196
+          ],
+          [
+            0.0,
+            0.0,
+            5.46589
+          ],
+          [
+            1.03868,
+            0.59968,
+            1.82196
+          ],
+          [
+            -0.0,
+            1.19936,
+            5.46589
+          ]
+        ],
+        "Stress": [
+          [
+            4018.2068,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4018.20803,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            2.2588
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/Graphite/TaC_DFT_Data_Graphite_Volume_0.8413793103448276_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "Graphite",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

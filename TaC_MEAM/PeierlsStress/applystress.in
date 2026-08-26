@@ -42,8 +42,7 @@ variable forcebot equal ${forceconversion}/${nbottom}
 fix forcetop top addforce  0.0 ${forcetop} 0.0 
 fix forcebottom bottom addforce  0.0 -${forcebot} 0.0 
 
-fix freeze_top top setforce 0 NULL 0
-fix freeze_bottom bottom setforce 0 NULL 0
+
 
 fix_modify forcetop energy yes
 fix_modify forcebottom energy yes
@@ -60,13 +59,21 @@ pair_coeff * * ../library.meam Ta C ../TaC.meam Ta C
 
 compute        peratom all pe/atom
 
+shell           mkdir dump
+dump            1 all custom 10 dump/dump.* id type x y z
 
 thermo 1 
-thermo_style custom step pe lx ly lz press pxy pyy pzz cellalpha cellbeta cellgamma
+thermo_style custom step pe lx ly lz press pxy pyy pzz cellalpha cellbeta temp
 min_style cg
-minimize 0 1e-3 10000 10000
+minimize 0 1e-20 10000 10000
 
+#min_style fire
+#minimize 0 1e-20 10000 10000
 
+#timestep        0.005
+#velocity        all create 2 87287 loop geom
+#fix 1 all nvt temp 1.0 1.0 100
+#run 5000
 fix_modify forcetop energy no
 fix_modify forcebottom energy no
 

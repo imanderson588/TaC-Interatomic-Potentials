@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "Ta",
+          "Ta"
+        ],
+        "Energy": -46.4111186,
+        "Forces": [
+          [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            4.253797139,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.253797139,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            4.253797139
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            2.1269,
+            2.1269
+          ],
+          [
+            2.1269,
+            0.0,
+            2.1269
+          ],
+          [
+            2.1269,
+            2.1269,
+            0.0
+          ]
+        ],
+        "Stress": [
+          [
+            -57.55953,
+            -0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -57.55953,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -57.55953
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/C_FCC/TaC_DFT_Data_C_FCC_Volume_1.010344827586207_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "C_FCC",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

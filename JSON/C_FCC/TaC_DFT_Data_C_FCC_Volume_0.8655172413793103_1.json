@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "Ta",
+          "Ta",
+          "Ta",
+          "Ta"
+        ],
+        "Energy": -35.73646173,
+        "Forces": [
+          [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            3.644037823,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.644037823,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            3.644037823
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.82202,
+            1.82202
+          ],
+          [
+            1.82202,
+            0.0,
+            1.82202
+          ],
+          [
+            1.82202,
+            1.82202,
+            0.0
+          ]
+        ],
+        "Stress": [
+          [
+            1781.98649,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            1781.98649,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            1781.98649
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "Ta",
+            "17Jan2003"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/C_FCC/TaC_DFT_Data_C_FCC_Volume_0.8655172413793103_1.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "C_FCC",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}

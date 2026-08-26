@@ -1,0 +1,155 @@
+LAMMPS (15 Sep 2022)
+# Find minimum energy fcc configuration
+# Mark Tschopp, 2010
+
+# ---------- Initialize Simulation ---------------------
+clear
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+atom_modify map array
+variable a equal 5.0
+
+# ---------- Create Atoms ---------------------
+
+lattice         fcc $a
+lattice         fcc 5
+Lattice spacing in x,y,z = 5 5 5
+region          box block 0 4 0 4 0 4
+create_box      2 box
+Created orthogonal box = (0 0 0) to (20 20 20)
+  2 by 1 by 3 MPI processor grid
+create_atoms    1 box
+Created 256 atoms
+  using lattice units in orthogonal box = (0 0 0) to (20 20 20)
+  create_atoms CPU = 0.001 seconds
+lattice         fcc $a origin 0.50000000 0.50000000 0.50000000
+lattice         fcc 5 origin 0.50000000 0.50000000 0.50000000
+Lattice spacing in x,y,z = 5 5 5
+create_atoms    2 box
+Created 256 atoms
+  using lattice units in orthogonal box = (0 0 0) to (20 20 20)
+  create_atoms CPU = 0.001 seconds
+
+mass 1 180.9479  # Atomic mass of Ta
+mass 2 12.011    # Atomic mass of C
+
+
+# ---------- Define Interatomic Potential ---------------------
+pair_style hybrid/overlay zbl 4.0 4.2 snap
+pair_coeff 1 1 zbl 73 73
+pair_coeff 1 2 zbl 73 6
+pair_coeff 2 2 zbl 6 6
+pair_coeff * * snap ../TaC_pot.snapcoeff ../TaC_pot.snapparam Ta C
+SNAP Element = Ta, Radius 2.86954, Weight 1
+SNAP Element = C, Radius 2, Weight 0.9293160905266721
+SNAP keyword rcutfac 1.0
+SNAP keyword twojmax 6
+SNAP keyword rfac0 0.99363
+SNAP keyword rmin0 0.0
+SNAP keyword bzeroflag 1
+SNAP keyword wselfallflag 1
+SNAP keyword chemflag 1
+SNAP keyword bnormflag 1
+SNAP keyword switchinnerflag 0
+SNAP keyword quadraticflag 0
+
+# ---------- Define Settings ---------------------
+compute eng all pe/atom
+compute eatoms all reduce sum c_eng
+thermo 10
+
+# ---------- Run Minimization ---------------------
+reset_timestep 0
+fix 1 all box/relax iso 0.0 vmax .001
+thermo 10
+thermo_style custom step pe lx ly lz press pxx pyy pzz c_eatoms
+min_style cg
+minimize 0 1e-8 50000 100000
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7.73908
+  ghost atom cutoff = 7.73908
+  binsize = 3.86954, bins = 6 6 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair zbl, perpetual, half/full trim from (2)
+      attributes: half, newton on, cut 6.2
+      pair build: halffull/newton/trim
+      stencil: none
+      bin: none
+  (2) pair snap, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 5.813 | 5.896 | 5.942 Mbytes
+   Step         PotEng           Lx             Ly             Lz           Press           Pxx            Pyy            Pzz          c_eatoms   
+         0  -3979.9759      20             20             20            -532189.97     -532189.97     -532189.97     -532189.97     -3979.9759    
+        10  -4058.1776      19.8           19.8           19.8          -522033.88     -522033.88     -522033.88     -522033.88     -4058.1776    
+        20  -4133.1772      19.6           19.6           19.6          -509587.62     -509587.62     -509587.62     -509587.62     -4133.1772    
+        30  -4204.693       19.4           19.4           19.4          -494203.94     -494203.94     -494203.94     -494203.94     -4204.693     
+        40  -4272.106       19.2           19.2           19.2          -469916.23     -469916.23     -469916.23     -469916.23     -4272.106     
+        50  -4333.8865      19             19             19            -432209.84     -432209.84     -432209.84     -432209.84     -4333.8865    
+        60  -4388.4839      18.8           18.8           18.8          -381803.4      -381803.4      -381803.4      -381803.4      -4388.4839    
+        70  -4434.3087      18.6           18.6           18.6          -314632.31     -314632.31     -314632.31     -314632.31     -4434.3087    
+        80  -4469.7166      18.4           18.4           18.4          -235897.05     -235897.05     -235897.05     -235897.05     -4469.7166    
+        90  -4493.6476      18.2           18.2           18.2          -142711.75     -142711.75     -142711.75     -142711.75     -4493.6476    
+       100  -4504.6547      18             18             18            -33759.1       -33759.1       -33759.1       -33759.1       -4504.6547    
+       106  -4505.2394      17.943116      17.943116      17.943116      1.0039323e-09  9.9833662e-10  9.2834202e-10  1.0851183e-09 -4505.2394    
+Loop time of 3.11877 on 6 procs for 106 steps with 512 atoms
+
+96.1% CPU use with 6 MPI tasks x no OpenMP threads
+
+Minimization stats:
+  Stopping criterion = force tolerance
+  Energy initial, next-to-last, final = 
+     -3979.97587105438  -4505.23943652553   -4505.2394365255
+  Force two-norm initial, final = 7972.0051 1.2134754e-11
+  Force max component initial, final = 7972.0051 1.2104338e-11
+  Final line search alpha, max atom move = 1 1.2104338e-11
+  Iterations, force evaluations = 106 110
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1.3695     | 2.2856     | 3.0766     |  40.3 | 73.28
+Neigh   | 0.00061037 | 0.0010147  | 0.0013989  |   0.9 |  0.03
+Comm    | 0.034494   | 0.82594    | 1.7425     |  67.1 | 26.48
+Output  | 0.00041225 | 0.00044568 | 0.00060858 |   0.0 |  0.01
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.005812   |            |       |  0.19
+
+Nlocal:        85.3333 ave         120 max          48 min
+Histogram: 1 0 0 2 1 0 0 0 0 2
+Nghost:        1509.67 ave        1602 max        1365 min
+Histogram: 1 0 1 0 0 0 1 0 2 1
+Neighs:        3413.33 ave        4800 max        1920 min
+Histogram: 1 0 0 2 1 0 0 0 0 2
+FullNghs:      10922.7 ave       15360 max        6144 min
+Histogram: 1 0 0 2 1 0 0 0 0 2
+
+Total # of neighbors = 65536
+Ave neighs/atom = 128
+Neighbor list builds = 3
+Dangerous builds = 0
+
+variable natoms equal "count(all)"
+variable teng equal "c_eatoms"
+variable length equal "lx/4"
+variable ecoh equal "v_teng/256"
+
+print "Total energy (eV) = ${teng};"
+Total energy (eV) = -4505.23943652551;
+print "Number of atoms = ${natoms};"
+Number of atoms = 512;
+print "Lattice constant (Angstoms) = ${length};"
+Lattice constant (Angstoms) = 4.4857789877468;
+print "Cohesive energy (eV) = ${ecoh};"
+Cohesive energy (eV) = -17.5985915489278;
+
+
+print "All done!"
+All done!
+Total wall time: 0:00:03

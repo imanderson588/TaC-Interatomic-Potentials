@@ -1,0 +1,111 @@
+{
+  "Dataset": {
+    "AtomTypeStyle": "chemicalsymbol",
+    "Data": [
+      {
+        "AtomTypes": [
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "Energy": -29.05609902,
+        "Forces": [
+          [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        ],
+        "Lattice": [
+          [
+            2.946161183,
+            -0.0,
+            0.0
+          ],
+          [
+            -1.473080591,
+            2.551450746,
+            -0.0
+          ],
+          [
+            0.0,
+            0.0,
+            7.134626723
+          ]
+        ],
+        "NumAtoms": 4,
+        "Positions": [
+          [
+            0.0,
+            0.0,
+            1.78366
+          ],
+          [
+            0.0,
+            0.0,
+            5.35097
+          ],
+          [
+            1.47308,
+            0.85048,
+            1.78366
+          ],
+          [
+            -0.0,
+            1.70097,
+            5.35097
+          ]
+        ],
+        "Stress": [
+          [
+            -1084.46397,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1084.46424,
+            -0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            -39.66062
+          ]
+        ],
+        "computation_code": "VASP",
+        "pseudopotential_information": [
+          [
+            "PAW_PBE",
+            "C",
+            "08Apr2002"
+          ]
+        ]
+      }
+    ],
+    "EnergyStyle": "electronvolt",
+    "File": "vJSON/Graphite/TaC_DFT_Data_Graphite_Volume_0.8413793103448276_3.json",
+    "ForcesStyle": "electronvoltperangstrom",
+    "Group": "Graphite",
+    "LatticeStyle": "angstrom",
+    "PositionsStyle": "angstrom",
+    "StressStyle": "kB",
+    "use_TOTEN": 0
+  }
+}
